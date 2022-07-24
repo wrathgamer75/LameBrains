@@ -24,8 +24,13 @@ public class ENEMYATTACK : MonoBehaviour
    
     private float searchcount = 1f;
 
-   private spawnst sta=spawnst.counting;
+    private spawnst sta=spawnst.counting;
 
+    public ENEMYATTACK attack;
+    private void Awake()
+    {
+        attack = this;
+    }
 
     private void Start()
     {

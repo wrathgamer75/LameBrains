@@ -4854,10 +4854,10 @@ GameObject:
   m_Component:
   - component: {fileID: 419848}
   - component: {fileID: 9581464}
-  - component: {fileID: 9048066612192247668}
   - component: {fileID: -4112069280728504375}
   - component: {fileID: 6127361376383811563}
   - component: {fileID: -1287668456803223753}
+  - component: {fileID: -6067614433565923124}
   m_Layer: 0
   m_Name: SpeedZombie
   m_TagString: Untagged
@@ -4951,19 +4951,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &9048066612192247668
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177384}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-4112069280728504375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4992,6 +4979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc490e165fcdfd74f9eab512555a6e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
   target: {fileID: 0}
 --- !u!195 &-1287668456803223753
 NavMeshAgent:
@@ -5015,6 +5003,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &-6067614433565923124
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6637541
+  m_Height: 3.0290875
+  m_Direction: 1
+  m_Center: {x: -0.000046372414, y: 1.4289567, z: 0}
 --- !u!1 &177512
 GameObject:
   m_ObjectHideFlags: 0
