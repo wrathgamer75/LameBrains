@@ -4855,12 +4855,12 @@ GameObject:
   - component: {fileID: 419848}
   - component: {fileID: 9581464}
   - component: {fileID: -4112069280728504375}
-  - component: {fileID: 6127361376383811563}
   - component: {fileID: -1287668456803223753}
   - component: {fileID: -6067614433565923124}
+  - component: {fileID: -8167361869620969392}
   m_Layer: 0
   m_Name: SpeedZombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4942,7 +4942,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: dbbc53a6bc8f5c64bb234194ce1380aa, type: 3}
   m_Controller: {fileID: 9100000, guid: bbbe5d218cd61ec4399550e69dfa34eb, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -4967,20 +4967,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6127361376383811563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc490e165fcdfd74f9eab512555a6e43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  target: {fileID: 0}
 --- !u!195 &-1287668456803223753
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5017,6 +5003,19 @@ CapsuleCollider:
   m_Height: 3.0290875
   m_Direction: 1
   m_Center: {x: -0.000046372414, y: 1.4289567, z: 0}
+--- !u!114 &-8167361869620969392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1874a3502942d4daac0cf37c27492b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &177512
 GameObject:
   m_ObjectHideFlags: 0

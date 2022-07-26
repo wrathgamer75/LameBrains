@@ -26,12 +26,6 @@ public class ENEMYATTACK : MonoBehaviour
 
     private spawnst sta=spawnst.counting;
 
-    public ENEMYATTACK attack;
-    private void Awake()
-    {
-        attack = this;
-    }
-
     private void Start()
     {
         if (spawnpoints.Length == 0)

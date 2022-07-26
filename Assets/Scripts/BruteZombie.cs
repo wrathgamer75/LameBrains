@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class BruteZombie : MonoBehaviour
 {
-    public HealthBarScript health;
+    [SerializeField] HealthBarScript health;
 
     public Transform target;
     private NavMeshAgent agent;
@@ -44,9 +44,15 @@ public class BruteZombie : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag=="Player")
         {
-           Destroy(gameObject);
+            health.slider.value--;
+            if (health.slider.value == 0)
+            {
+                anim.SetTrigger("death");
+                Destroy(gameObject, 2f);
+            }
         }
+       
     }
 }

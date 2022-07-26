@@ -31773,7 +31773,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720851918}
-  m_LocalRotation: {x: 0.18878458, y: -0.007448186, z: 0.001431892, w: 0.98198926}
+  m_LocalRotation: {x: 0.18878458, y: -0.0074482244, z: 0.0014318993, w: 0.98198926}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -41863,7 +41863,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966155348}
-  m_LocalRotation: {x: 0.21683235, y: -0.0074041197, z: 0.0016446286, w: 0.9761794}
+  m_LocalRotation: {x: 0.21683235, y: -0.0074041197, z: 0.0016446288, w: 0.9761794}
   m_LocalPosition: {x: -307.33807, y: 53.743, z: -10.711218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -64830,7 +64830,6 @@ MonoBehaviour:
   - {fileID: 44605965}
   spawndelatime: 5
   wavecount: 0
-  attack: {fileID: 0}
 --- !u!4 &1496084211
 Transform:
   m_ObjectHideFlags: 0
@@ -78899,7 +78898,6 @@ MonoBehaviour:
   - {fileID: 1504234243}
   spawndelatime: 5
   wavecount: 0
-  attack: {fileID: 0}
 --- !u!1 &1804855750
 GameObject:
   m_ObjectHideFlags: 0

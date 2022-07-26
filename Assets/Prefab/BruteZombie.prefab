@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc490e165fcdfd74f9eab512555a6e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
+  health: {fileID: 7962591219174297457}
   target: {fileID: 0}
 --- !u!195 &3302374931277379117
 NavMeshAgent:
@@ -6436,7 +6436,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6713,7 +6713,7 @@ MonoBehaviour:
   m_Interactable: 0
   m_TargetGraphic: {fileID: 193756543224995365}
   m_FillRect: {fileID: 1925989343501294483}
-  m_HandleRect: {fileID: 5636440570260444833}
+  m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
   m_MaxValue: 3
