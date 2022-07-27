@@ -10,8 +10,11 @@ public class BruteZombie : MonoBehaviour
     public Transform target;
     private NavMeshAgent agent;
     private Animator anim;
+    [SerializeField] float collidetime;
+    private bool candamage;
     private void Start()
     {
+        candamage = true;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -44,8 +47,10 @@ public class BruteZombie : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag=="Player")
+        if(collision.gameObject.tag=="Player" && candamage)
         {
+            candamage = false;
+            StartCoroutine("damagereset");
             health.slider.value--;
             if (health.slider.value == 0)
             {
@@ -54,5 +59,10 @@ public class BruteZombie : MonoBehaviour
             }
         }
        
+    }
+    IEnumerator damagereset()
+    {
+        yield return new WaitForSeconds(collidetime);
+        candamage = true;
     }
 }
