@@ -11,11 +11,6 @@ public class ENEMYSPWAN : MonoBehaviour
     public float enemyspawntime;
     [SerializeField]
     private int enemycount = 0;
-    ENEMYSPWAN instance;
-    private void Awake()
-    {
-        instance = this;
-    }
     void Start()
     {
         InvokeRepeating("EnemySpawn", enemyspawntime, enemydelay);

@@ -5742,10 +5742,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5341755904291011647}
   - component: {fileID: 5341755904298279683}
-  - component: {fileID: 5341755904325693213}
   - component: {fileID: 5341755904325693204}
   - component: {fileID: 5341755904325693208}
   - component: {fileID: 1512627056147044633}
+  - component: {fileID: 1775372432729050941}
   m_Layer: 0
   m_Name: DUMBZOMBIE 1
   m_TagString: Enemy
@@ -5839,19 +5839,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &5341755904325693213
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5341755904290976591}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2302742, y: 3.0501175, z: 1}
-  m_Center: {x: 0.03948593, y: 1.5508957, z: 0}
 --- !u!114 &5341755904325693204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5886,7 +5873,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -5895,7 +5882,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2.87
-  m_BaseOffset: 0
+  m_BaseOffset: -0.01
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &1512627056147044633
@@ -5912,8 +5899,22 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &1775372432729050941
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5341755904290976591}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7950239
+  m_Height: 3.1052055
+  m_Direction: 1
+  m_Center: {x: -0.031859398, y: 1.4920139, z: 0}
 --- !u!1 &5341755904290978003
 GameObject:
   m_ObjectHideFlags: 0
