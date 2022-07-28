@@ -12,6 +12,18 @@ public class BruteZombie : MonoBehaviour
     private Animator anim;
     [SerializeField] float collidetime;
     private bool candamage;
+    int zombdmg = 1;
+
+    float timeinRange = 0.0f;
+    
+
+    private void Awake()
+    {
+       
+
+
+    }
+
     private void Start()
     {
         candamage = true;
@@ -38,6 +50,16 @@ public class BruteZombie : MonoBehaviour
         agent.isStopped = true;
         anim.SetBool("bool", false);
         anim.SetTrigger("Attackanim");
+        timeinRange +=Time.deltaTime;
+        if(timeinRange > 1.2f)
+        {
+
+            CarAdditional.carhealthdamage(zombdmg);
+            timeinRange = 0.0f;
+        }
+        
+        
+        
     }
     private void gotoenemy()
     {
@@ -56,8 +78,11 @@ public class BruteZombie : MonoBehaviour
             {
                 anim.SetTrigger("death");
                 Destroy(gameObject, 2f);
+                CarAdditional.upgrade(1);
             }
         }
+        
+
        
     }
     IEnumerator damagereset()

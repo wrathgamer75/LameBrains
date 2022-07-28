@@ -17,6 +17,9 @@ public class enemymoment1 : MonoBehaviour
     public AIState enemyState = AIState.Patrol;
     private NavMeshAgent agent;
     private Animator anim;
+    int zombdmg = 1;
+
+    float timeinRange = 0.0f;
 
     //NavMeshAgent enemyNavAgent;
     void Start()
@@ -70,6 +73,13 @@ public class enemymoment1 : MonoBehaviour
                 agent.SetDestination(transform.position);
                 anim.SetBool("bool", false);
                 anim.SetTrigger("Attackanim");
+                timeinRange += Time.deltaTime;
+                if (timeinRange > 1.2f)
+                {
+
+                    CarAdditional.carhealthdamage(zombdmg);
+                    timeinRange = 0.0f;
+                }
 
                 break;
             default:
@@ -81,6 +91,7 @@ public class enemymoment1 : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             this.gameObject.SetActive(false);
+            CarAdditional.upgrade(1);
         }
     }
     //public void ememydead()

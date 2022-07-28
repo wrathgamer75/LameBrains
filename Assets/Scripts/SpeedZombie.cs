@@ -8,6 +8,11 @@ public class SpeedZombie : MonoBehaviour
     public Transform target;
     private NavMeshAgent agent;
     private Animator anim;
+
+    int zombdmg = 1;
+
+    float timeinRange = 0.0f;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -33,6 +38,14 @@ public class SpeedZombie : MonoBehaviour
         agent.isStopped = true;
         anim.SetBool("bool", false);
         anim.SetTrigger("Attackanim");
+        timeinRange += Time.deltaTime;
+        if (timeinRange > 1.2f)
+        {
+
+            CarAdditional.carhealthdamage(zombdmg);
+            timeinRange = 0.0f;
+        }
+
     }
     private void gotoenemy()
     {
@@ -45,6 +58,7 @@ public class SpeedZombie : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
+            CarAdditional.upgrade(1);
         }
     }
 }
