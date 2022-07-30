@@ -22,7 +22,7 @@ public class SpeedZombie : MonoBehaviour
     private void Update()
     {
         float dist = Vector3.Distance(transform.position, target.transform.position);//creating the dis between the zombie and player
-        if (dist < 7)
+        if (dist < 7.5)
         {
             stopenemy();
 

@@ -15,8 +15,7 @@ public class LoadingScnenScript : MonoBehaviour
     {
         timedelay -= Time.deltaTime;
         if(timedelay <= 0)
-        {
-            
+        {    
             SceneManager.LoadScene("LOADSCENE");
         }
     }

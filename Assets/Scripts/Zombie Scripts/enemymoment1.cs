@@ -18,20 +18,18 @@ public class enemymoment1 : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
     int zombdmg = 1;
+    float timeinRange;
 
-    float timeinRange = 0.0f;
-
-    //NavMeshAgent enemyNavAgent;
     void Start()
     {
-        //target = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        nextDestination = wayPoints[((destinationLoop++) % wayPoints.Length)];
+        nextDestination = wayPoints[((destinationLoop++) % wayPoints.Length)];    
     }
 
     void Update()
     {
+        
         float enemyplayerdis = Vector3.Distance(transform.position, target.position);
 
         if (enemyplayerdis > chasedis)
@@ -52,47 +50,51 @@ public class enemymoment1 : MonoBehaviour
         }
     }
 
-
     void Movement()
     {
-        switch(enemyState)
+        if(gameObject.active)
         {
-            case AIState.Patrol:
-                anim.SetBool("bool",true);
-                if (Vector3.Distance(transform.position, nextDestination.position) < 1f)
-                    nextDestination = wayPoints[(destinationLoop++) % wayPoints.Length];
-                agent.SetDestination(nextDestination.position);
+            switch (enemyState)
+            {
+                case AIState.Patrol:
+                    anim.SetBool("bool", true);
+                    if (Vector3.Distance(transform.position, nextDestination.position) < 1f)
+                        nextDestination = wayPoints[(destinationLoop++) % wayPoints.Length];
+                    agent.SetDestination(nextDestination.position);
 
-                break;
-            case AIState.Chase:
-                anim.SetBool("bool", true);
-                agent.SetDestination(target.position);
+                    break;
+                case AIState.Chase:
+                    anim.SetBool("bool", true);
+                    agent.SetDestination(target.position);
 
-                break;
-            case AIState.Attack:
-                agent.SetDestination(transform.position);
-                anim.SetBool("bool", false);
-                anim.SetTrigger("Attackanim");
-                timeinRange += Time.deltaTime;
-                if (timeinRange > 1.2f)
-                {
+                    break;
+                case AIState.Attack:
+                    agent.SetDestination(transform.position);
+                    anim.SetBool("bool", false);
+                    anim.SetTrigger("Attackanim");
+                    timeinRange += Time.deltaTime;
+                    if (timeinRange > 1.2f)
+                    {
+                        CarAdditional.carhealthdamage(zombdmg);
+                        timeinRange = 0.0f;
+                    }
 
-                    CarAdditional.carhealthdamage(zombdmg);
-                    timeinRange = 0.0f;
-                }
-
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
+            }
         }
     }
+        
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Player")
         {
+            FindObjectOfType<Dumbactivating>().dumbtesting(5f,this.gameObject);
             this.gameObject.SetActive(false);
             CarAdditional.upgrade(1);
         }
+       
     }
 
     //public void ememydead()

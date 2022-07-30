@@ -17,7 +17,7 @@ public class ENEMYSPWAN : MonoBehaviour
     }
     private void Update()
     {
-        stopspawing = enemycount >= 7;
+        stopspawing = enemycount >= 10;
     }
     public void EnemySpawn()
     {
@@ -27,14 +27,6 @@ public class ENEMYSPWAN : MonoBehaviour
             {
                 Instantiate(enemy1[i], transform.position, transform.rotation);
                 
-            }
-            enemycount++;
-        }
-        else if(stopspawing)
-        {
-            for(int i = 0; i > enemy1.Length; i++)
-            {
-                Instantiate(enemy1[i], transform.position, transform.rotation);
             }
             enemycount++;
         }
