@@ -8,7 +8,9 @@ public class CarAdditional : MonoBehaviour
 {
     public GameObject lights;
     public static int health = 100;
-    public int speed;
+    public static int Maxhealth = 100;
+    public Image XPbar;
+    //public int speed;
     public static int upgradecounter = 0;
     public GameObject upgrade1;
     public GameObject upgrade2;
@@ -40,22 +42,22 @@ public class CarAdditional : MonoBehaviour
                 Debug.Log("2");
                 break;
             case 30:
-                upgrade3.SetActive(false);
+                upgrade3.SetActive(true);
                 break;
             case 40:
-                upgrade4.SetActive(false);
+                upgrade4.SetActive(true);
                 break;
             case 50:
-                upgrade5.SetActive(false);
+                upgrade5.SetActive(true);
                 break;
             case 60:
-                upgrade6.SetActive(false);
+                upgrade6.SetActive(true);
                 break;
             case 70:
-                upgrade7.SetActive(false);
+                upgrade7.SetActive(true);
                 break;
             case 80:
-                upgrade8.SetActive(false);
+                upgrade8.SetActive(true);
                 break;
         }
 
@@ -79,6 +81,10 @@ public class CarAdditional : MonoBehaviour
     public static void upgrade(int upgradescnt)
     {
         upgradecounter += upgradescnt;
+    }
+    public static void CarhealthBar()
+    {
+        XPbar.fillAmount = health / Maxhealth;
     }
 
 }
