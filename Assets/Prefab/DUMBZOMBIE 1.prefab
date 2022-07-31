@@ -1708,8 +1708,7 @@ MonoBehaviour:
   - {fileID: 0}
   rotationSpeed: 6
   chasedis: 10
-  attackdis: 5.5
-  dead: 0
+  attackdis: 5.8
   enemyState: 0
   ragdoll: {fileID: 102121172232162572, guid: 76b10b442abdeb94cae03dbc0686777d, type: 3}
 --- !u!195 &5341755904325693208

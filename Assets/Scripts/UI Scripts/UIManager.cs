@@ -7,7 +7,8 @@ public class UIManager : MonoBehaviour
 {
    public void PlayButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Main");
     }
      public void QuitGame()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CarAdditional : MonoBehaviour
 {
@@ -29,20 +30,24 @@ public class CarAdditional : MonoBehaviour
     public GameObject upgrade6;
     public GameObject upgrade7;
     public GameObject upgrade8;
-    
 
     public TextMeshProUGUI carhptxt;
     public TextMeshProUGUI upgrades;
 
-    // Update is called once per frame
+    public GameObject canva;
+    public static CarAdditional car1;
+    private void Awake()
+    {
+        car1 = this;
+    }
+    private void Start()
+    {
+        canva.SetActive(false);
+    }
     void Update()
     {
         carhptxt.text = health + "";
         upgrades.text = upgradecounter+"";
-        if(health>Maxhealth)
-        {
-            health = Maxhealth;
-        }
 
         switch(upgradecounter)
         {
@@ -105,7 +110,10 @@ public class CarAdditional : MonoBehaviour
                 upgradebar = 0;
                 break;
         }
-
+        if (health > Maxhealth)
+        {
+            health = Maxhealth;
+        }
         //if (Input.GetKeyDown(KeyCode.H)) ;
         //{
         //    lights.SetActive(false);
@@ -113,8 +121,8 @@ public class CarAdditional : MonoBehaviour
         if (health == 0)
         {
             this.gameObject.SetActive(false);
-
-            //GAMER OVER SCENE HERE!!!
+            Time.timeScale = 0f;
+           //canva.SetActive(true);//GAMER OVER SCENE HERE!!!  
         }
         carSpeed = (2 * Mathf.PI * frontLeftCollider.radius * frontLeftCollider.rpm * 60) / 1000;
         

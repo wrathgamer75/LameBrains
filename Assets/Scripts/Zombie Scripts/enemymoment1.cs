@@ -11,8 +11,6 @@ public class enemymoment1 : MonoBehaviour
     int destinationLoop;
     public float rotationSpeed;
     public float chasedis, attackdis;
-    [SerializeField]
-    private bool dead = false;
     public enum AIState { Patrol,Chase,Attack,dead};
     public AIState enemyState = AIState.Patrol;
     private NavMeshAgent agent;
@@ -45,25 +43,23 @@ public class enemymoment1 : MonoBehaviour
         {
             enemyState = AIState.Attack;
         }
-        if(dead == false)
-        {
         Movement();
-        }
     }
 
     void Movement()
     {
-        if(gameObject.active)
-        {
             switch (enemyState)
             {
                 case AIState.Patrol:
+                if(gameObject.active)
+                {
                     anim.SetBool("bool", true);
                     if (Vector3.Distance(transform.position, nextDestination.position) < 1f)
                         nextDestination = wayPoints[(destinationLoop++) % wayPoints.Length];
                     agent.SetDestination(nextDestination.position);
 
-                    break;
+                }
+                break;
                 case AIState.Chase:
                     anim.SetBool("bool", true);
                     agent.SetDestination(target.position);
@@ -84,7 +80,7 @@ public class enemymoment1 : MonoBehaviour
                 default:
                     break;
             }
-        }
+        
     }
         
     private void OnCollisionEnter(Collision collision)
@@ -100,13 +96,4 @@ public class enemymoment1 : MonoBehaviour
         }
        
     }
-
-    //public void ememydead()
-    //{
-    //    dead = true;
-    //    anim.SetBool("bool", false);
-    //    anim.SetTrigger("deathtrigger");
-    //    Destroy(gameObject, 2f);
-
-    //}
 }

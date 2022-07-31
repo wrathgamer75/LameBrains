@@ -35,7 +35,6 @@ public class PauseScript : MonoBehaviour
     {
         pausemenuUI.SetActive(false);
         InGameUI.SetActive(true);
-        //fade.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
