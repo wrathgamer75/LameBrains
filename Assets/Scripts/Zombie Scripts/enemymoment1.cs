@@ -51,14 +51,10 @@ public class enemymoment1 : MonoBehaviour
             switch (enemyState)
             {
                 case AIState.Patrol:
-                if(gameObject.active)
-                {
                     anim.SetBool("bool", true);
                     if (Vector3.Distance(transform.position, nextDestination.position) < 1f)
                         nextDestination = wayPoints[(destinationLoop++) % wayPoints.Length];
                     agent.SetDestination(nextDestination.position);
-
-                }
                 break;
                 case AIState.Chase:
                     anim.SetBool("bool", true);

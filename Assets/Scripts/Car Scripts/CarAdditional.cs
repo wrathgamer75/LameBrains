@@ -118,7 +118,7 @@ public class CarAdditional : MonoBehaviour
         //{
         //    lights.SetActive(false);
         //}
-        if (health == 0)
+        if (health <= 0)
         {
             this.gameObject.SetActive(false);
             Time.timeScale = 0f;

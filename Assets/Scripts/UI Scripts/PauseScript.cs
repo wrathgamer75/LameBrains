@@ -10,6 +10,9 @@ public class PauseScript : MonoBehaviour
     public GameObject pausemenuUI;
     public GameObject InGameUI;
     public GameObject fade;
+    public AudioSource aud;
+    public AudioSource decay;
+
     private void Start()
     {
         InGameUI.SetActive(true);
@@ -33,6 +36,7 @@ public class PauseScript : MonoBehaviour
     }
     public void Resume()
     {
+        aud.Play();
         pausemenuUI.SetActive(false);
         InGameUI.SetActive(true);
         Time.timeScale = 1f;
@@ -40,6 +44,7 @@ public class PauseScript : MonoBehaviour
     }
     public void Pause()
     {
+        decay.Play();
         pausemenuUI.SetActive(true);
         InGameUI.SetActive(false);
         fade.SetActive(false);
@@ -48,11 +53,8 @@ public class PauseScript : MonoBehaviour
     }
     public void loadmenu()
     {
+        aud.Play();
         Time.timeScale = 1f;
         SceneManager.LoadScene("LOADSCENE");
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }
