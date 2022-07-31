@@ -5016,6 +5016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  ragdoll: {fileID: 7148172311384156451, guid: 3ecfda059da89374a8dbdc30fa1d3e34, type: 3}
 --- !u!1 &177512
 GameObject:
   m_ObjectHideFlags: 0

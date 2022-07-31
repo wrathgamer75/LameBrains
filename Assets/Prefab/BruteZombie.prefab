@@ -616,6 +616,7 @@ MonoBehaviour:
   health: {fileID: 7962591219174297457}
   target: {fileID: 0}
   collidetime: 0.5
+  ragdoll: {fileID: 105456}
 --- !u!195 &3302374931277379117
 NavMeshAgent:
   m_ObjectHideFlags: 0

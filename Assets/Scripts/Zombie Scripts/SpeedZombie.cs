@@ -8,6 +8,7 @@ public class SpeedZombie : MonoBehaviour
     public Transform target;
     private NavMeshAgent agent;
     private Animator anim;
+    public GameObject ragdoll;
 
     int zombdmg = 1;
 
@@ -56,8 +57,10 @@ public class SpeedZombie : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Instantiate(ragdoll, transform.position, transform.rotation);
             Destroy(gameObject);
             CarAdditional.upgrade(1);
+            CarAdditional.slowdamange(zombdmg);
         }
     }
 }

@@ -13,7 +13,7 @@ public class BruteZombie : MonoBehaviour
     [SerializeField] float collidetime;
     private bool candamage;
     int zombdmg = 5;
-
+    
     float timeinRange = 0.0f;
 
     private void Start()
@@ -66,8 +66,10 @@ public class BruteZombie : MonoBehaviour
             if (health.slider.value == 0)
             {
                 anim.SetTrigger("death");
+                
                 Destroy(gameObject, 2f);
                 CarAdditional.upgrade(1);
+                CarAdditional.slowdamange(zombdmg);
             }
         }
     }

@@ -13,7 +13,7 @@ public class PrometeoCarController : MonoBehaviour
       //[Header("CAR SETUP")]
       [Space(10)]
       [Range(20, 190)]
-      public int maxSpeed = 90; //The maximum speed that the car can reach in km/h.
+      public int maxSpeed = 120; //The maximum speed that the car can reach in km/h.
       [Range(10, 120)]
       public int maxReverseSpeed = 45; //The maximum speed that the car can reach while going on reverse in km/h.
       [Range(1, 10)]
@@ -205,6 +205,7 @@ public class PrometeoCarController : MonoBehaviour
         }else if(!useUI){
           if(carSpeedText != null){
             carSpeedText.text = "0";
+                
           }
         }
 
@@ -264,6 +265,7 @@ public class PrometeoCarController : MonoBehaviour
 
       // We determine the speed of the car.
       carSpeed = (2 * Mathf.PI * frontLeftCollider.radius * frontLeftCollider.rpm * 60) / 1000;
+        
         // Save the local velocity of the car in the x axis. Used to know if the car is drifting.
         localVelocityX = transform.InverseTransformDirection(carRigidbody.velocity).x;
       // Save the local velocity of the car in the z axis. Used to know if the car is going forward or backwards.
@@ -372,7 +374,25 @@ public class PrometeoCarController : MonoBehaviour
           try{
             float absoluteCarSpeed = Mathf.Abs(carSpeed);
             carSpeedText.text = Mathf.RoundToInt(absoluteCarSpeed).ToString();
-          }catch(Exception ex){
+                if (carSpeed <= 30)
+                {
+
+                    carSpeedText.color = Color.red;
+                }
+                else
+                {
+                    carSpeedText.color = Color.green;
+                }
+                if(carSpeed >=100)
+                {
+
+                    carSpeedText.color = Color.red;
+                }
+
+                //else
+                //    carSpeedText.color=Color.green;
+            }
+            catch(Exception ex){
             Debug.LogWarning(ex);
           }
       }

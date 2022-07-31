@@ -19,6 +19,7 @@ public class enemymoment1 : MonoBehaviour
     private Animator anim;
     int zombdmg = 1;
     float timeinRange;
+    public GameObject ragdoll;
 
     void Start()
     {
@@ -91,8 +92,11 @@ public class enemymoment1 : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             FindObjectOfType<Dumbactivating>().dumbtesting(5f,this.gameObject);
+            Instantiate(ragdoll, transform.position, transform.rotation);
             this.gameObject.SetActive(false);
+
             CarAdditional.upgrade(1);
+            CarAdditional.slowdamange(zombdmg);
         }
        
     }
