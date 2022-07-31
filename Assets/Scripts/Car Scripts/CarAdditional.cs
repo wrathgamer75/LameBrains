@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public class CarAdditional : MonoBehaviour
 {
     public GameObject lights;
-    public static float health = 100;
+    public GameObject lightbar;
+    public static float health = 1;
     public static float Maxhealth = 100;
 
     public static float carSpeed;
@@ -16,11 +17,12 @@ public class CarAdditional : MonoBehaviour
 
     public Image HPbar;
     public Image NxtUp;
-    //public int speed;
+    public GameObject blacksmoke;
     public static float upgradecounter = 0;
     public static float allupgrades = 100;
     public static float upgradebar;
     static float lerpspeed;
+    public bool LightsOnandOff;
 
     public GameObject upgrade1;
     public GameObject upgrade2;
@@ -35,6 +37,8 @@ public class CarAdditional : MonoBehaviour
     public TextMeshProUGUI upgrades;
 
     public GameObject canva;
+    public GameObject gameover;
+
     public static CarAdditional car1;
     private void Awake()
     {
@@ -42,7 +46,8 @@ public class CarAdditional : MonoBehaviour
     }
     private void Start()
     {
-        canva.SetActive(false);
+        //canva.SetActive(false);
+        LightsOnandOff = true;
     }
     void Update()
     {
@@ -114,15 +119,35 @@ public class CarAdditional : MonoBehaviour
         {
             health = Maxhealth;
         }
-        //if (Input.GetKeyDown(KeyCode.H)) ;
-        //{
-        //    lights.SetActive(false);
-        //}
+        if(health<10)
+        {
+            blacksmoke.SetActive(true);
+        }
+        else
+        {
+            blacksmoke.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            LightsOnandOff = !LightsOnandOff;
+        }
+        if(LightsOnandOff == true)
+        {
+            lights.SetActive(true);
+            lightbar.SetActive(true);
+        }
+        else
+        {
+            lights.SetActive(false);
+            lightbar.SetActive(false);
+        }
+
         if (health <= 0)
         {
             this.gameObject.SetActive(false);
-            Time.timeScale = 0f;
-           //canva.SetActive(true);//GAMER OVER SCENE HERE!!!  
+            gameover.SetActive(true);
+            //Time.timeScale = 0f;
+           canva.SetActive(true);//GAMER OVER SCENE HERE!!!  
         }
         carSpeed = (2 * Mathf.PI * frontLeftCollider.radius * frontLeftCollider.rpm * 60) / 1000;
         
