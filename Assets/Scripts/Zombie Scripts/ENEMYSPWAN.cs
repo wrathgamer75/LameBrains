@@ -17,7 +17,7 @@ public class ENEMYSPWAN : MonoBehaviour
     }
     private void Update()
     {
-        stopspawing = enemycount >= 10;
+        stopspawing = enemycount >= 7;
     }
     public void EnemySpawn()
     {

@@ -9,7 +9,7 @@ public class CarAdditional : MonoBehaviour
 {
     public GameObject lights;
     public GameObject lightbar;
-    public static float health = 1;
+    public static float health = 100;
     public static float Maxhealth = 100;
 
     public static float carSpeed;
@@ -37,7 +37,6 @@ public class CarAdditional : MonoBehaviour
     public TextMeshProUGUI upgrades;
 
     public GameObject canva;
-    public GameObject gameover;
 
     public static CarAdditional car1;
     private void Awake()
@@ -119,7 +118,7 @@ public class CarAdditional : MonoBehaviour
         {
             health = Maxhealth;
         }
-        if(health<10)
+        if(health < 20)
         {
             blacksmoke.SetActive(true);
         }
@@ -144,10 +143,10 @@ public class CarAdditional : MonoBehaviour
 
         if (health <= 0)
         {
-            this.gameObject.SetActive(false);
-            gameover.SetActive(true);
-            //Time.timeScale = 0f;
-           canva.SetActive(true);//GAMER OVER SCENE HERE!!!  
+            //this.gameObject.SetActive(false);           
+            Time.timeScale = 0f;
+            canva.SetActive(true);//GAMER OVER SCENE HERE!!!
+
         }
         carSpeed = (2 * Mathf.PI * frontLeftCollider.radius * frontLeftCollider.rpm * 60) / 1000;
         
@@ -168,7 +167,7 @@ public class CarAdditional : MonoBehaviour
     {
         if(carSpeed<=30)
         {
-            health -=zombdmg;
+            health = zombdmg - 3;
         }
     }
     public static void upgrade(int upgradescnt)

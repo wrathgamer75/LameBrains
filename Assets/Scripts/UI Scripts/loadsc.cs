@@ -7,13 +7,14 @@ public class loadsc : MonoBehaviour
 {
     public void Restart()
     {
-        
-        SceneManager.LoadScene("restartscene");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Main");
     }
     public void Menu()
     {
-        SceneManager.LoadScene("LOADSCENE");
         Time.timeScale = 1f;
+        SceneManager.LoadScene("LOADSCENE");
+        
     }
    
 }
